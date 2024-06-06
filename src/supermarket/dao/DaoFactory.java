@@ -4,6 +4,9 @@
  */
 package supermarket.dao;
 
+import supermarket.dao.custom.impl.CustomerDaoImpl;
+
+
 /**
  *
  * @author Sanjaya Prasad
@@ -25,7 +28,7 @@ public class DaoFactory {
         switch (daoType) {
 
             case CUSTOMER:
-              //  return new CustomerRepositoryImpl();
+                return new CustomerDaoImpl();
             case ITEM_CATEGORY:
                // return new RoomCategoryRepositoryImpl();
             case ITEM:
