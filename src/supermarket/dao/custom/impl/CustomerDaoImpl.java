@@ -15,7 +15,7 @@ import supermarket.entity.CustomerEntity;
  *
  * @author Sanjaya Prasad
  */
-public class CustomerDaoImpl implements CustomerDao{
+public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public boolean save(CustomerEntity t) throws Exception {
@@ -35,7 +35,7 @@ public class CustomerDaoImpl implements CustomerDao{
 
     @Override
     public boolean update(CustomerEntity t) throws Exception {
-        return CrudUtil.executeUpdate("UPDATE Customer SET CustTitle=?,CustName=?,NIC=?,DOB=?,MobileNumber=?,CustAddress=?,City=?,Province=?,PostalCode=? WHERE  CustID=?",
+        return CrudUtil.executeUpdate("UPDATE Customer SET CustTitle = ?, CustName = ?, NIC = ?, DOB = ?, MobileNumber = ?, CustAddress = ?, City = ?, Province = ?, PostalCode = ? WHERE  CustID = ?",
                 t.getCustTitle(),
                 t.getCustName(),
                 t.getNIC(),
@@ -50,13 +50,13 @@ public class CustomerDaoImpl implements CustomerDao{
 
     @Override
     public boolean delete(CustomerEntity t) throws Exception {
-        return CrudUtil.executeUpdate("DELETE FROM customer WHERE CustID=?",
+        return CrudUtil.executeUpdate("DELETE FROM customer WHERE CustID = ?",
                 t.getCustID());
     }
 
     @Override
     public CustomerEntity get(String id) throws Exception {
-        ResultSet resultSet = CrudUtil.executeQuery("SELECT * FROM Customer WHERE CustID=?", id);
+        ResultSet resultSet = CrudUtil.executeQuery("SELECT * FROM Customer WHERE CustID = ?", id);
 
         while (resultSet.next()) {
             return new CustomerEntity(
@@ -96,5 +96,5 @@ public class CustomerDaoImpl implements CustomerDao{
         }
         return customerEntities;
     }
-    
+
 }

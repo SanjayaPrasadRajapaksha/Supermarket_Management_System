@@ -4,7 +4,8 @@
  */
 package supermarket.service;
 
-import supermarket.service.custom.CustomerServiceImpl;
+import supermarket.service.custom.Impl.CustomerServiceImpl;
+import supermarket.service.custom.Impl.ItemServiceImpl;
 
 /**
  *
@@ -25,13 +26,13 @@ public class ServiceFactory {
             case CUSTOMER:
                 return new CustomerServiceImpl();
             case ITEM_CATEGORY:
-              //  return new RoomCategoryServiceImpl();
+              // return new ItemCategoryServiceImpl();
             case ITEM:
-              //  return new RoomServiceImpl();
+              return new ItemServiceImpl();
             case ORDERS:
-             //   return new ReservationServiceImpl();
+             //   return new OrderServiceImpl();
             case ORDER_DETAIL:
-             //   return new ReservationDetailServiceImpl();
+             //   return new OrderDetailServiceImpl();
             default:
                 return null;
         }

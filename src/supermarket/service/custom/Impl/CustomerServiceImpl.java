@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package supermarket.service.custom;
+package supermarket.service.custom.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,7 @@ import supermarket.dao.DaoFactory;
 import supermarket.dao.custom.CustomerDao;
 import supermarket.dto.CustomerDto;
 import supermarket.entity.CustomerEntity;
+import supermarket.service.custom.CustomerService;
 
 /**
  *
@@ -72,9 +73,9 @@ public class CustomerServiceImpl implements CustomerService{
     public List<CustomerDto> getAll() throws Exception {
 
         List<CustomerDto> customerDtos = new ArrayList<>();
-        List<CustomerEntity> CustomerEntities = customerDao.getAll();
+        List<CustomerEntity> customerEntities = customerDao.getAll();
 
-        for (CustomerEntity e : CustomerEntities) {
+        for (CustomerEntity e : customerEntities) {
             customerDtos.add(new CustomerDto(
                     e.getCustID(),
                     e.getCustTitle(),
