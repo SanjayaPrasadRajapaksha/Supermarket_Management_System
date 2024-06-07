@@ -4,11 +4,13 @@
  */
 package supermarket.view;
 
+import java.awt.Font;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import supermarket.controller.ItemController;
 import supermarket.dto.ItemDto;
@@ -76,6 +78,7 @@ public class ItemView extends javax.swing.JFrame {
             }
         });
 
+        tblData.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -87,6 +90,7 @@ public class ItemView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblData.setRowHeight(25);
         tblData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDataMouseClicked(evt);
@@ -216,11 +220,11 @@ public class ItemView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCategoryIDActionPerformed
 
     private void tblDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMouseClicked
-        SearchItem();
+        searchItem();
     }//GEN-LAST:event_tblDataMouseClicked
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        SaveItem();
+        saveItem();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -284,7 +288,7 @@ public class ItemView extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtQty;
     // End of variables declaration//GEN-END:variables
-private void SaveItem() {
+private void saveItem() {
 
         try {
             ItemDto itemDto = new ItemDto(txtItemID.getText(), txtName.getText(), txtQty.getText(), txtCategoryID.getText());
@@ -304,7 +308,7 @@ private void SaveItem() {
     private void loadTable() {
         try {
             String[] columns = {"Item ID", "Name", "Qty", "Category ID"};
-             
+
             DefaultTableModel defaultTableModel = new DefaultTableModel(columns, 0) {
                 @Override
                 public boolean isCellEditable(int row, int column) {
@@ -325,12 +329,14 @@ private void SaveItem() {
                 };
                 defaultTableModel.addRow(rows);
             }
-            
-             CenterCellRenderer centerRenderer = new CenterCellRenderer();
+
+            CenterCellRenderer centerRenderer = new CenterCellRenderer();
             for (int i = 0; i < tblData.getColumnCount(); i++) {
                 TableColumn column = tblData.getColumnModel().getColumn(i);
                 column.setCellRenderer(centerRenderer);
             }
+            JTableHeader header = tblData.getTableHeader();
+            header.setFont(new Font("Arial", Font.BOLD, 16));
         } catch (Exception ex) {
             Logger.getLogger(ItemView.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, ex.getMessage());
@@ -339,7 +345,7 @@ private void SaveItem() {
 
     }
 
-    private void SearchItem() {
+    private void searchItem() {
         try {
             String id = (String) tblData.getValueAt(tblData.getSelectedRow(), 0);
 

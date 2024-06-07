@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JRootPane;
+import supermarket.view.CategoryView;
 import supermarket.view.CustomerView;
 import supermarket.view.ItemView;
 
@@ -18,7 +19,8 @@ import supermarket.view.ItemView;
 public class Main {
 
     public static void main(String[] args) {
-        new CustomerView().setVisible(true);
-        new ItemView().setVisible(true);;
+        //new CustomerView().setVisible(true);
+        //new ItemView().setVisible(true);
+        //new CategoryView().setVisible(true);
     }
 }

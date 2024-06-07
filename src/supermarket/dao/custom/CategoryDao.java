@@ -5,11 +5,12 @@
 package supermarket.dao.custom;
 
 import supermarket.dao.CrudDao;
+import supermarket.entity.CategoryEntity;
 
 /**
  *
  * @author Sanjaya Prasad
  */
-public interface CategoryDao extends CrudDao{
-    
+public interface CategoryDao extends CrudDao<CategoryEntity, String> {
+
 }

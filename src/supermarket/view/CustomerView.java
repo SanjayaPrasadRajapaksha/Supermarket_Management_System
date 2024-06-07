@@ -14,14 +14,16 @@ import supermarket.dto.CustomerDto;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
+
 /**
  *
  * @author Sanjaya Prasad
  */
 public class CustomerView extends javax.swing.JFrame {
 
-       final CustomerController customerController;
+    final CustomerController customerController;
 
     public CustomerView() {
         customerController = new CustomerController();
@@ -159,6 +161,7 @@ public class CustomerView extends javax.swing.JFrame {
             }
         });
 
+        tblData.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -170,6 +173,7 @@ public class CustomerView extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblData.setRowHeight(25);
         tblData.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDataMouseClicked(evt);
@@ -215,11 +219,11 @@ public class CustomerView extends javax.swing.JFrame {
                     .addComponent(txtCity)
                     .addComponent(txtAddress)
                     .addComponent(txtContact)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtName)
                     .addComponent(txtNIC)
-                    .addComponent(txtDOB))
+                    .addComponent(txtDOB)
+                    .addComponent(txtID)
+                    .addComponent(txtTitle))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
@@ -307,7 +311,7 @@ public class CustomerView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        UpdateCustomer();
+        updateCustomer();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -388,7 +392,7 @@ public class CustomerView extends javax.swing.JFrame {
     private javax.swing.JTextField txtZip;
     // End of variables declaration//GEN-END:variables
 
- private void saveCustomer() {
+    private void saveCustomer() {
 
         try {
             CustomerDto customerDto = new CustomerDto(txtID.getText(), txtTitle.getText(), txtName.getText(), txtNIC.getText(), txtDOB.getText(), txtContact.getText(), txtAddress.getText(), txtCity.getText(), txtProvince.getText(), txtZip.getText());
@@ -429,11 +433,14 @@ public class CustomerView extends javax.swing.JFrame {
                 };
                 defaultTableModel.addRow(rows);
             }
-         CenterCellRenderer centerRenderer = new CenterCellRenderer();
+            CenterCellRenderer centerRenderer = new CenterCellRenderer();
             for (int i = 0; i < tblData.getColumnCount(); i++) {
                 TableColumn column = tblData.getColumnModel().getColumn(i);
                 column.setCellRenderer(centerRenderer);
             }
+
+            JTableHeader header = tblData.getTableHeader();
+            header.setFont(new Font("Arial", Font.BOLD, 16));
         } catch (Exception ex) {
             Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, ex.getMessage());
@@ -470,7 +477,7 @@ public class CustomerView extends javax.swing.JFrame {
         }
     }
 
-    private void UpdateCustomer() {
+    private void updateCustomer() {
         try {
             CustomerDto customerDto = new CustomerDto(
                     txtID.getText(),
@@ -522,4 +529,3 @@ public class CustomerView extends javax.swing.JFrame {
         }
     }
 }
-

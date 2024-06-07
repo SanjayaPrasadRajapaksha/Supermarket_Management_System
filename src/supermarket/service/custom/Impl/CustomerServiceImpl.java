@@ -16,10 +16,11 @@ import supermarket.service.custom.CustomerService;
  *
  * @author Sanjaya Prasad
  */
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
 
     private CustomerDao customerDao = (CustomerDao) DaoFactory.getInstance().getDao(DaoFactory.DaoType.CUSTOMER);
-   @Override
+
+    @Override
     public String saveCustomer(CustomerDto customerDto) throws Exception {
         if (customerDao.save(new CustomerEntity(customerDto.getCustID(), customerDto.getCustTitle(), customerDto.getCustName(), customerDto.getNIC(), customerDto.getDOB(), customerDto.getMobileNumber(), customerDto.getCustAddress(), customerDto.getCity(), customerDto.getProvince(), customerDto.getPostalCode()))) {
             return "SuccessFully Saved";

@@ -12,7 +12,8 @@ import supermarket.service.SuperService;
  *
  * @author Sanjaya Prasad
  */
-public interface ItemService extends SuperService{
+public interface ItemService extends SuperService {
+
     String saveItem(ItemDto itemDto) throws Exception;
 
     String updateItem(ItemDto itemDto) throws Exception;

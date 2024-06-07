@@ -16,12 +16,13 @@ import supermarket.service.custom.ItemService;
  *
  * @author Sanjaya Prasad
  */
-public class ItemServiceImpl implements ItemService{
+public class ItemServiceImpl implements ItemService {
 
     private ItemDao ItemDao = (ItemDao) DaoFactory.getInstance().getDao(DaoFactory.DaoType.ITEM);
+
     @Override
     public String saveItem(ItemDto itemDto) throws Exception {
-       if (ItemDao.save(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(), itemDto.getCategoryID()))) {
+        if (ItemDao.save(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(), itemDto.getCategoryID()))) {
             return "SuccessFully Saved";
         } else {
             return "Fail";
@@ -30,7 +31,7 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public String updateItem(ItemDto itemDto) throws Exception {
-       if (ItemDao.update(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(), itemDto.getCategoryID()))) {
+        if (ItemDao.update(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(), itemDto.getCategoryID()))) {
             return "SuccessFully Updated";
         } else {
             return "Fail";
@@ -39,7 +40,7 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public String deleteItem(ItemDto itemDto) throws Exception {
-      ItemEntity itemEntity = new ItemEntity();
+        ItemEntity itemEntity = new ItemEntity();
         itemEntity.setItemID(itemDto.getItemID());
         if (ItemDao.delete(itemEntity)) {
             return "SuccessFully Deleted";
@@ -50,14 +51,14 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public ItemDto getItem(String id) throws Exception {
-       ItemEntity itemEntity = ItemDao.get(id);
+        ItemEntity itemEntity = ItemDao.get(id);
         if (itemEntity != null) {
             return new ItemDto(
                     itemEntity.getItemID(),
                     itemEntity.getItemName(),
                     itemEntity.getQuantity(),
                     itemEntity.getCategoryID()
-                   );
+            );
 
         } else {
             return null;
@@ -66,7 +67,7 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public List<ItemDto> getAll() throws Exception {
-             List<ItemDto> itemDtos = new ArrayList<>();
+        List<ItemDto> itemDtos = new ArrayList<>();
         List<ItemEntity> itemEntities = ItemDao.getAll();
 
         for (ItemEntity e : itemEntities) {

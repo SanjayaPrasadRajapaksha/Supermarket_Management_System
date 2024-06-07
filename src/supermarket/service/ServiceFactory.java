@@ -4,6 +4,7 @@
  */
 package supermarket.service;
 
+import supermarket.service.custom.Impl.CategoryServiceImpl;
 import supermarket.service.custom.Impl.CustomerServiceImpl;
 import supermarket.service.custom.Impl.ItemServiceImpl;
 
@@ -26,7 +27,7 @@ public class ServiceFactory {
             case CUSTOMER:
                 return new CustomerServiceImpl();
             case ITEM_CATEGORY:
-              // return new ItemCategoryServiceImpl();
+               return new CategoryServiceImpl();
             case ITEM:
               return new ItemServiceImpl();
             case ORDERS:

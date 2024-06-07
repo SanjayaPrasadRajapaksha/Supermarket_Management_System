@@ -12,7 +12,6 @@ import java.awt.*;
  *
  * @author Sanjaya Prasad
  */
-
 public class CenterCellRenderer extends DefaultTableCellRenderer {
 
     @Override

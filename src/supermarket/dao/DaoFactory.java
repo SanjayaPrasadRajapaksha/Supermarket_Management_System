@@ -4,6 +4,7 @@
  */
 package supermarket.dao;
 
+import supermarket.dao.custom.impl.CategoryDaoImpl;
 import supermarket.dao.custom.impl.CustomerDaoImpl;
 import supermarket.dao.custom.impl.ItemDaoImpl;
 
@@ -31,7 +32,7 @@ public class DaoFactory {
             case CUSTOMER:
                 return new CustomerDaoImpl();
             case ITEM_CATEGORY:
-              // return new ItemCategoryDaoImpl();
+               return new CategoryDaoImpl();
             case ITEM:
               return new ItemDaoImpl();
             case ORDERS:
