@@ -23,6 +23,7 @@ public class ItemEntity {
 
     private String itemID;
     private String itemName;
-    private String quantity;
+    private Double quantity;
+    private Double price;
     private String categoryID;
 }

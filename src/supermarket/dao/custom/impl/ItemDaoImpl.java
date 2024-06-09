@@ -19,19 +19,21 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public boolean save(ItemEntity t) throws Exception {
-        return CrudUtil.executeUpdate("INSERT INTO item VALUES(?,?,?,?)",
+        return CrudUtil.executeUpdate("INSERT INTO item VALUES(?,?,?,?,?)",
                 t.getItemID(),
                 t.getItemName(),
                 t.getQuantity(),
+                t.getPrice(),
                 t.getCategoryID()
         );
     }
 
     @Override
     public boolean update(ItemEntity t) throws Exception {
-        return CrudUtil.executeUpdate("UPDATE item SET ItemName = ?, Quantity = ?, CategoryID = ? WHERE ItemID = ?",
+        return CrudUtil.executeUpdate("UPDATE item SET ItemName = ?, Quantity = ?, Price = ?, CategoryID = ? WHERE ItemID = ?",
                 t.getItemName(),
                 t.getQuantity(),
+                t.getPrice(),
                 t.getCategoryID(),
                 t.getItemID()
         );
@@ -51,7 +53,8 @@ public class ItemDaoImpl implements ItemDao {
             return new ItemEntity(
                     resultSet.getString("ItemID"),
                     resultSet.getString("ItemName"),
-                    resultSet.getString("Quantity"),
+                    resultSet.getDouble("Quantity"),
+                    resultSet.getDouble("Price"),
                     resultSet.getString("CategoryID")
             );
 
@@ -67,7 +70,8 @@ public class ItemDaoImpl implements ItemDao {
             itemEntities.add(new ItemEntity(
                     resultSet.getString("ItemID"),
                     resultSet.getString("ItemName"),
-                    resultSet.getString("Quantity"),
+                    resultSet.getDouble("Quantity"),
+                    resultSet.getDouble("Price"),
                     resultSet.getString("CategoryID")));
 
         }

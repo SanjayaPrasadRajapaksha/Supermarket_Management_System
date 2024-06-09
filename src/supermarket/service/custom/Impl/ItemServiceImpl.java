@@ -22,7 +22,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public String saveItem(ItemDto itemDto) throws Exception {
-        if (ItemDao.save(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(), itemDto.getCategoryID()))) {
+        if (ItemDao.save(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(),itemDto.getPrice(), itemDto.getCategoryID()))) {
             return "SuccessFully Saved";
         } else {
             return "Fail";
@@ -31,7 +31,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public String updateItem(ItemDto itemDto) throws Exception {
-        if (ItemDao.update(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(), itemDto.getCategoryID()))) {
+        if (ItemDao.update(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(),itemDto.getPrice(), itemDto.getCategoryID()))) {
             return "SuccessFully Updated";
         } else {
             return "Fail";
@@ -57,6 +57,7 @@ public class ItemServiceImpl implements ItemService {
                     itemEntity.getItemID(),
                     itemEntity.getItemName(),
                     itemEntity.getQuantity(),
+                    itemEntity.getPrice(),
                     itemEntity.getCategoryID()
             );
 
@@ -75,6 +76,7 @@ public class ItemServiceImpl implements ItemService {
                     e.getItemID(),
                     e.getItemName(),
                     e.getQuantity(),
+                    e.getPrice(),
                     e.getCategoryID())
             );
         }

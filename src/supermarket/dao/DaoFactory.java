@@ -7,14 +7,16 @@ package supermarket.dao;
 import supermarket.dao.custom.impl.CategoryDaoImpl;
 import supermarket.dao.custom.impl.CustomerDaoImpl;
 import supermarket.dao.custom.impl.ItemDaoImpl;
-
+import supermarket.dao.custom.impl.OrderDaoImpl;
+import supermarket.dao.custom.impl.OrderDetailsDaoImpl;
 
 /**
  *
  * @author Sanjaya Prasad
  */
 public class DaoFactory {
- private static DaoFactory daoFactory;
+
+    private static DaoFactory daoFactory;
 
     public DaoFactory() {
     }
@@ -25,26 +27,26 @@ public class DaoFactory {
         }
         return daoFactory;
     }
-    
-        public SuperDao getDao(DaoType daoType) {
+
+    public SuperDao getDao(DaoType daoType) {
         switch (daoType) {
 
             case CUSTOMER:
                 return new CustomerDaoImpl();
             case ITEM_CATEGORY:
-               return new CategoryDaoImpl();
+                return new CategoryDaoImpl();
             case ITEM:
-              return new ItemDaoImpl();
+                return new ItemDaoImpl();
             case ORDERS:
-              //  return new OrderDaoImpl();
+                return new OrderDaoImpl();
             case ORDER_DETAIL:
-              //  return new OrderDaoImpl();
+                return new OrderDetailsDaoImpl();
             default:
                 return null;
         }
     }
-        
-     public enum DaoType {
-        CUSTOMER, ITEM_CATEGORY, ITEM, ORDERS, ORDER_DETAIL
+
+    public enum DaoType {
+        CUSTOMER, ITEM_CATEGORY, ITEM, ORDERS, ORDER_DETAIL;
     }
 }

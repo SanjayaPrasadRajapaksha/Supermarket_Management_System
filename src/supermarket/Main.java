@@ -11,6 +11,7 @@ import javax.swing.JRootPane;
 import supermarket.view.CategoryView;
 import supermarket.view.CustomerView;
 import supermarket.view.ItemView;
+import supermarket.view.OrderView;
 
 /**
  *
@@ -20,7 +21,8 @@ public class Main {
 
     public static void main(String[] args) {
         //new CustomerView().setVisible(true);
-        //new ItemView().setVisible(true);
+       //new ItemView().setVisible(true);
         //new CategoryView().setVisible(true);
+        new OrderView().setVisible(true);
     }
 }
