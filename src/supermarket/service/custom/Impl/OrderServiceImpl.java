@@ -40,41 +40,43 @@ public class OrderServiceImpl implements OrderService {
             orderEntity.setCustID(orderDto.getCustID());
 
             if (orderDao.save(orderEntity)) {
-                 float totalPrice = 0;
-                 String billDetails="";
-               
-                boolean isReservationDetailSaved = true;
+                float totalPrice = 0;
+                String billDetails = "";
+
+                boolean isOrderDetailSaved = true;
 
                 for (OrderDetailsDto e : orderDto.getOrderDetailsDto()) {
-                    boolean response = orderDetailsDao.save(new OrderDetailsEntity(orderDto.getOrderID(), e.getItemID(), e.getOrderQty(), e.getDiscount(), ((e.getOrderQty() * e.getItemPrice()-e.getDiscount()))));
-                    totalPrice += e.getOrderQty() * e.getItemPrice();
-                    billDetails +=("# "+e.getItemID()+" : "+e.getOrderQty()+" * "+e.getItemPrice()+" - "+ e.getDiscount()+"(Dis)"+"\t"+(e.getOrderQty() * e.getItemPrice()-e.getDiscount())+"\n"); 
+                    boolean response = orderDetailsDao.save(new OrderDetailsEntity(orderDto.getOrderID(), e.getItemID(), e.getOrderQty(), e.getDiscount(), ((e.getOrderQty() * e.getTotalPrice() - e.getDiscount()))));
+                    totalPrice += e.getOrderQty() * e.getTotalPrice();
+                    billDetails += ("# " + e.getItemID() + " : " + e.getOrderQty() + " * " + e.getTotalPrice() + " - " + e.getDiscount() + "(Dis)" + "\t" + (e.getOrderQty() * e.getTotalPrice() - e.getDiscount()) + "\n");
                     if (!response) {
-                        isReservationDetailSaved = false;
+                        isOrderDetailSaved = false;
                     }
                 }
 
-                if (isReservationDetailSaved) {
+                if (isOrderDetailSaved) {
 
-                    boolean isRoomUpdated = true;
+                    boolean isItemUpdated = true;
                     for (OrderDetailsDto e : orderDto.getOrderDetailsDto()) {
                         ItemEntity itemEntity = ItemDao.get(e.getItemID());
                         if (itemEntity != null) {
                             itemEntity.setQuantity(itemEntity.getQuantity() - e.getOrderQty());
 
                             if (!ItemDao.update(itemEntity)) {
-                                isRoomUpdated = false;
+                                isItemUpdated = false;
+                            } else {
+                                isItemUpdated = false;
                             }
                         }
                     }
 
-                    if (isRoomUpdated) {
+                    if (isItemUpdated) {
                         connection.commit();
 
-                        return billDetails+"\n"+"Total Price :"+"\t\t"+totalPrice+"/=";
+                        return billDetails + "\n" + "Total Price :" + "\t\t" + totalPrice + "/=";
                     } else {
                         connection.rollback();
-                        return "Order Update Error";
+                        return "Item Update Error";
                     }
 
                 } else {
@@ -85,6 +87,53 @@ public class OrderServiceImpl implements OrderService {
             } else {
                 connection.rollback();
                 return "Order Save Error";
+            }
+
+        } catch (Exception e) {
+            connection.rollback();
+            e.printStackTrace();
+            throw e;
+        } finally {
+            connection.setAutoCommit(true);
+        }
+    }
+
+    @Override
+    public String cancelOrder(OrderDto orderDto) throws Exception {
+        Connection connection = DBConnection.getInstance().getConnection();
+        try {
+            connection.setAutoCommit(false);
+
+            OrderEntity ordernEntity = new OrderEntity();
+            ordernEntity.setOrderID(orderDto.getOrderID());
+
+            if (orderDao.delete(ordernEntity)) {
+
+                boolean isItemUpdated = true;
+                for (OrderDetailsDto e : orderDto.getOrderDetailsDto()) {
+                    ItemEntity itemEntity = ItemDao.get(e.getItemID());
+                    if (itemEntity != null) {
+                        itemEntity.setQuantity(itemEntity.getQuantity() + e.getOrderQty());
+
+                        if (!ItemDao.update(itemEntity)) {
+                            isItemUpdated = false;
+                        }
+                    } else {
+                        isItemUpdated = false;
+                    }
+                }
+
+                if (isItemUpdated) {
+                    connection.commit();
+                    return "Success";
+                } else {
+                    connection.rollback();
+                    return "Item Update Error";
+                }
+
+            } else {
+                connection.rollback();
+                return "Order Delete Error";
             }
 
         } catch (Exception e) {

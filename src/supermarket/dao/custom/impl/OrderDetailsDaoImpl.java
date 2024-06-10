@@ -8,7 +8,8 @@ import java.util.List;
 import supermarket.dao.CrudUtil;
 import supermarket.dao.custom.OrderDetailsDao;
 import supermarket.entity.OrderDetailsEntity;
-
+import java.sql.ResultSet;
+import java.util.ArrayList;
 /**
  *
  * @author Sanjaya Prasad
@@ -26,24 +27,24 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
         );
     }
 
-    @Override
-    public boolean update(OrderDetailsEntity t) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
 
     @Override
-    public boolean delete(OrderDetailsEntity t) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<OrderDetailsEntity> get(String id) throws Exception {
+       ResultSet resultSet = CrudUtil.executeQuery("SELECT * FROM Order_Detail WHERE OrderID = ?",id);
+        List<OrderDetailsEntity> orderDetailsEntities = new ArrayList<>();
+        while (resultSet.next()) {
+            orderDetailsEntities.add(new OrderDetailsEntity(
+                    resultSet.getString("OrderID"),
+                    resultSet.getString("ItemID"),
+                    resultSet.getDouble("OrderQty"),
+                    resultSet.getDouble("Discount"),
+                    resultSet.getDouble("TotalPrice")));
+
+        }
+        return orderDetailsEntities;
     }
 
-    @Override
-    public OrderDetailsEntity get(String id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
-    @Override
-    public List<OrderDetailsEntity> getAll() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
 }

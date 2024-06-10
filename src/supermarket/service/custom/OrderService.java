@@ -15,4 +15,5 @@ import supermarket.service.SuperService;
 public interface OrderService extends SuperService {
 
     String placeOrder(OrderDto orderDto) throws Exception;
+    String cancelOrder(OrderDto orderDto) throws Exception;
 }

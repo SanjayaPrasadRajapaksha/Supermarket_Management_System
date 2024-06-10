@@ -7,6 +7,7 @@ package supermarket.service;
 import supermarket.service.custom.Impl.CategoryServiceImpl;
 import supermarket.service.custom.Impl.CustomerServiceImpl;
 import supermarket.service.custom.Impl.ItemServiceImpl;
+import supermarket.service.custom.Impl.OrderDetailsServiceImpl;
 import supermarket.service.custom.Impl.OrderServiceImpl;
 
 /**
@@ -34,7 +35,7 @@ public class ServiceFactory {
             case ORDERS:
                 return new OrderServiceImpl();
             case ORDER_DETAIL:
-              // return new OrderDetailServiceImpl();
+               return new OrderDetailsServiceImpl();
             default:
                 return null;
         }

@@ -24,5 +24,5 @@ public class OrderDetailsDto {
     private String itemID;
     private Double orderQty;
     private Double discount;
-    private Double itemPrice;
+    private Double totalPrice;
 }

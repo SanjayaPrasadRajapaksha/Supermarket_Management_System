@@ -174,7 +174,7 @@
               <Font name="Segoe UI" size="24" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="MANAGE CUSTOMER"/>
+            <Property name="text" type="java.lang.String" value="MANAGE CUSTOMERS"/>
           </Properties>
           <AccessibilityProperties>
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>

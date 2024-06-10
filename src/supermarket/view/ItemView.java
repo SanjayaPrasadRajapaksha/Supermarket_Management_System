@@ -63,7 +63,7 @@ public class ItemView extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("MANAGE ITEM");
+        jLabel1.setText("MANAGE ITEMS");
 
         lblItemID.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblItemID.setText("Item ID :");

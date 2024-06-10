@@ -389,7 +389,7 @@ public class OrderView extends javax.swing.JFrame {
             ItemDto itemDto = itemController.searchItem(id);
 
             if (itemDto != null) {
-                lblItemData.setText(itemDto.getItemID() + " | " + itemDto.getItemName() + " | " +itemDto.getPrice()+" | "+ itemDto.getQuantity());
+                lblItemData.setText(itemDto.getItemID() + " | " + itemDto.getItemName() + " | " + itemDto.getPrice() + " | " + itemDto.getQuantity());
             } else {
                 JOptionPane.showMessageDialog(this, "Item Not found");
 
@@ -402,7 +402,7 @@ public class OrderView extends javax.swing.JFrame {
     }
 
     private void loadTable() {
-        String[] colums = {"Item ID","Price", "Quantity", "Discount"};
+        String[] colums = {"Item ID", "Price", "Quantity", "Discount"};
         DefaultTableModel dtm = new DefaultTableModel(colums, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -410,6 +410,14 @@ public class OrderView extends javax.swing.JFrame {
             }
         };
         tblData.setModel(dtm);
+        
+        CenterCellRenderer centerRenderer = new CenterCellRenderer();
+        for (int i = 0; i < tblData.getColumnCount(); i++) {
+            TableColumn column = tblData.getColumnModel().getColumn(i);
+            column.setCellRenderer(centerRenderer);
+        }
+        JTableHeader header = tblData.getTableHeader();
+        header.setFont(new Font("Arial", Font.BOLD, 16));
     }
 
     private void clear() {
@@ -435,7 +443,7 @@ public class OrderView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, resp);
             txtAreaBill.setText(resp);
             System.out.println(resp);
-             clear();
+            clear();
         } catch (Exception ex) {
             Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, ex.getMessage());
@@ -449,13 +457,13 @@ public class OrderView extends javax.swing.JFrame {
             orderDetailsDto.setItemID(txtItemID.getText());
             orderDetailsDto.setOrderQty(Double.parseDouble(txtQuantity.getText()));
             orderDetailsDto.setDiscount(Double.parseDouble(txtDiscount.getText()));
-            orderDetailsDto.setItemPrice(price);
+            orderDetailsDto.setTotalPrice(price);
             orderDetailsDtos.add(orderDetailsDto);
 
-            Object[] rowData = {orderDetailsDto.getItemID(),orderDetailsDto.getItemPrice(), orderDetailsDto.getOrderQty(), orderDetailsDto.getDiscount()};
+            Object[] rowData = {orderDetailsDto.getItemID(), orderDetailsDto.getTotalPrice(), orderDetailsDto.getOrderQty(), orderDetailsDto.getDiscount()};
             DefaultTableModel dtm = (DefaultTableModel) tblData.getModel();
             dtm.addRow(rowData);
-           CenterCellRenderer centerRenderer = new CenterCellRenderer();
+            CenterCellRenderer centerRenderer = new CenterCellRenderer();
             for (int i = 0; i < tblData.getColumnCount(); i++) {
                 TableColumn column = tblData.getColumnModel().getColumn(i);
                 column.setCellRenderer(centerRenderer);
@@ -467,4 +475,5 @@ public class OrderView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }
+
 }
