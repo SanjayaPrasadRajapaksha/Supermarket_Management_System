@@ -20,6 +20,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CategoryDto {
+
     private String categoryID;
     private String CategoryName;
     private String description;

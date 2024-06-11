@@ -11,6 +11,6 @@ import supermarket.entity.OrderEntity;
  *
  * @author Sanjaya Prasad
  */
-public interface OrderDao extends CrudDao<OrderEntity,String>{
-    
+public interface OrderDao extends CrudDao<OrderEntity, String> {
+
 }

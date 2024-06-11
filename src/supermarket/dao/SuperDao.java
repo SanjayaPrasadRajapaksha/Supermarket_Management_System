@@ -9,5 +9,5 @@ package supermarket.dao;
  * @author Sanjaya Prasad
  */
 public interface SuperDao {
-    
+
 }

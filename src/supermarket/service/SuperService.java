@@ -9,5 +9,5 @@ package supermarket.service;
  * @author Sanjaya Prasad
  */
 public interface SuperService {
-    
+
 }

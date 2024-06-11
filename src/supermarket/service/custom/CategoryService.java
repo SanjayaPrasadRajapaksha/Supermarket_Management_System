@@ -6,7 +6,6 @@ package supermarket.service.custom;
 
 import java.util.List;
 import supermarket.dto.CategoryDto;
-import supermarket.dto.ItemDto;
 import supermarket.service.SuperService;
 
 /**

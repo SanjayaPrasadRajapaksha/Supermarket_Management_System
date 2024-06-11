@@ -5,7 +5,6 @@
 package supermarket.service.custom.Impl;
 
 import java.sql.Connection;
-import java.util.List;
 import supermarket.dao.DaoFactory;
 import supermarket.dao.custom.ItemDao;
 import supermarket.dao.custom.OrderDao;

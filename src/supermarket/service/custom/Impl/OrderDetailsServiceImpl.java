@@ -17,12 +17,12 @@ import supermarket.service.custom.OrderDetailsService;
  * @author Sanjaya Prasad
  */
 public class OrderDetailsServiceImpl implements OrderDetailsService {
-private OrderDetailsDao orderDetailsDao = (OrderDetailsDao) DaoFactory.getInstance().getDao(DaoFactory.DaoType.ORDER_DETAIL);
-   
+
+    private OrderDetailsDao orderDetailsDao = (OrderDetailsDao) DaoFactory.getInstance().getDao(DaoFactory.DaoType.ORDER_DETAIL);
 
     @Override
     public List<OrderDetailsDto> getOrderDetails(String id) throws Exception {
-      List<OrderDetailsDto> orderDetailsDtos = new ArrayList<>();
+        List<OrderDetailsDto> orderDetailsDtos = new ArrayList<>();
         List<OrderDetailsEntity> OrderDetailsEntities = (List<OrderDetailsEntity>) orderDetailsDao.get(id);
 
         for (OrderDetailsEntity e : OrderDetailsEntities) {
@@ -32,12 +32,10 @@ private OrderDetailsDao orderDetailsDao = (OrderDetailsDao) DaoFactory.getInstan
                     e.getOrderQty(),
                     e.getDiscount(),
                     e.getTotalPrice()));
-                    
 
         }
 
         return orderDetailsDtos;
     }
 
-   
 }

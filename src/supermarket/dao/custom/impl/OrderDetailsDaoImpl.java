@@ -10,6 +10,7 @@ import supermarket.dao.custom.OrderDetailsDao;
 import supermarket.entity.OrderDetailsEntity;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
 /**
  *
  * @author Sanjaya Prasad
@@ -27,11 +28,9 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
         );
     }
 
-
-
     @Override
     public List<OrderDetailsEntity> get(String id) throws Exception {
-       ResultSet resultSet = CrudUtil.executeQuery("SELECT * FROM Order_Detail WHERE OrderID = ?",id);
+        ResultSet resultSet = CrudUtil.executeQuery("SELECT * FROM Order_Detail WHERE OrderID = ?", id);
         List<OrderDetailsEntity> orderDetailsEntities = new ArrayList<>();
         while (resultSet.next()) {
             orderDetailsEntities.add(new OrderDetailsEntity(
@@ -44,7 +43,5 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
         }
         return orderDetailsEntities;
     }
-
-
 
 }

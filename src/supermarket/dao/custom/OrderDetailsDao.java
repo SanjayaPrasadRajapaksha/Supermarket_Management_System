@@ -5,7 +5,6 @@
 package supermarket.dao.custom;
 
 import java.util.List;
-import supermarket.dao.CrudDao;
 import supermarket.dao.SuperDao;
 import supermarket.entity.OrderDetailsEntity;
 
@@ -13,7 +12,9 @@ import supermarket.entity.OrderDetailsEntity;
  *
  * @author Sanjaya Prasad
  */
-public interface OrderDetailsDao extends SuperDao{
-     public List<OrderDetailsEntity> get(String id) throws Exception;
-      public boolean save(OrderDetailsEntity t) throws Exception;
+public interface OrderDetailsDao extends SuperDao {
+
+    public List<OrderDetailsEntity> get(String id) throws Exception;
+
+    public boolean save(OrderDetailsEntity t) throws Exception;
 }

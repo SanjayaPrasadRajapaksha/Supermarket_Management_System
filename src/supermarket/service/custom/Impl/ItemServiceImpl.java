@@ -22,7 +22,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public String saveItem(ItemDto itemDto) throws Exception {
-        if (ItemDao.save(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(),itemDto.getPrice(), itemDto.getCategoryID()))) {
+        if (ItemDao.save(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(), itemDto.getPrice(), itemDto.getCategoryID()))) {
             return "SuccessFully Saved";
         } else {
             return "Fail";
@@ -31,7 +31,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public String updateItem(ItemDto itemDto) throws Exception {
-        if (ItemDao.update(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(),itemDto.getPrice(), itemDto.getCategoryID()))) {
+        if (ItemDao.update(new ItemEntity(itemDto.getItemID(), itemDto.getItemName(), itemDto.getQuantity(), itemDto.getPrice(), itemDto.getCategoryID()))) {
             return "SuccessFully Updated";
         } else {
             return "Fail";

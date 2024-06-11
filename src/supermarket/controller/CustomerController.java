@@ -14,9 +14,10 @@ import supermarket.service.custom.CustomerService;
  * @author Sanjaya Prasad
  */
 public class CustomerController {
+
     private CustomerService customerService = (CustomerService) ServiceFactory.getInstance().getService(ServiceFactory.ServiceType.CUSTOMER);
 
-  public String saveCustomer(CustomerDto customerDto) throws Exception {
+    public String saveCustomer(CustomerDto customerDto) throws Exception {
         return customerService.saveCustomer(customerDto);
     }
 

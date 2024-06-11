@@ -14,10 +14,11 @@ import supermarket.service.custom.OrderDetailsService;
  * @author Sanjaya Prasad
  */
 public class OrderDetailsController {
+
     private OrderDetailsService orderDetailsService = (OrderDetailsService) ServiceFactory.getInstance().getService(ServiceFactory.ServiceType.ORDER_DETAIL);
 
-     public List<OrderDetailsDto> get(String id) throws Exception {
+    public List<OrderDetailsDto> get(String id) throws Exception {
         return orderDetailsService.getOrderDetails(id);
     }
-     
+
 }

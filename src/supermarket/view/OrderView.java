@@ -410,7 +410,7 @@ public class OrderView extends javax.swing.JFrame {
             }
         };
         tblData.setModel(dtm);
-        
+
         CenterCellRenderer centerRenderer = new CenterCellRenderer();
         for (int i = 0; i < tblData.getColumnCount(); i++) {
             TableColumn column = tblData.getColumnModel().getColumn(i);

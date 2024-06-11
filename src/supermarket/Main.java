@@ -21,12 +21,7 @@ import supermarket.view.OrderView;
 public class Main {
 
     public static void main(String[] args) {
-        //new CustomerView().setVisible(true);
-        // new ItemView().setVisible(true);
-        //new CategoryView().setVisible(true);
-        //  new OrderView().setVisible(true);
-        //   new CancelOrderView().setVisible(true);
-        // new Menu().setVisible(true);
+
         new Login().setVisible(true);
     }
 }

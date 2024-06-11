@@ -15,7 +15,8 @@ import supermarket.service.custom.Impl.OrderServiceImpl;
  * @author Sanjaya Prasad
  */
 public class ServiceFactory {
-  private static ServiceFactory serviceFactory;
+
+    private static ServiceFactory serviceFactory;
 
     public static ServiceFactory getInstance() {
         if (serviceFactory == null) {
@@ -29,13 +30,13 @@ public class ServiceFactory {
             case CUSTOMER:
                 return new CustomerServiceImpl();
             case ITEM_CATEGORY:
-               return new CategoryServiceImpl();
+                return new CategoryServiceImpl();
             case ITEM:
-              return new ItemServiceImpl();
+                return new ItemServiceImpl();
             case ORDERS:
                 return new OrderServiceImpl();
             case ORDER_DETAIL:
-               return new OrderDetailsServiceImpl();
+                return new OrderDetailsServiceImpl();
             default:
                 return null;
         }
@@ -45,4 +46,3 @@ public class ServiceFactory {
         CUSTOMER, ITEM_CATEGORY, ITEM, ORDERS, ORDER_DETAIL
     }
 }
-

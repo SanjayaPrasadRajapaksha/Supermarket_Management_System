@@ -33,4 +33,3 @@ public class CustomerEntity {
     private String province;
     private String postalCode;
 }
-

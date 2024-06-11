@@ -14,9 +14,10 @@ import supermarket.service.custom.CategoryService;
  * @author Sanjaya Prasad
  */
 public class CategoryController {
-           private CategoryService categoryService = (CategoryService) ServiceFactory.getInstance().getService(ServiceFactory.ServiceType.ITEM_CATEGORY);
 
-  public String saveCategory(CategoryDto categoryDto) throws Exception {
+    private CategoryService categoryService = (CategoryService) ServiceFactory.getInstance().getService(ServiceFactory.ServiceType.ITEM_CATEGORY);
+
+    public String saveCategory(CategoryDto categoryDto) throws Exception {
         return categoryService.saveCategory(categoryDto);
     }
 
@@ -34,5 +35,5 @@ public class CategoryController {
 
     public String deleteCategory(CategoryDto categoryDto) throws Exception {
         return categoryService.deleteCategory(categoryDto);
-    } 
+    }
 }

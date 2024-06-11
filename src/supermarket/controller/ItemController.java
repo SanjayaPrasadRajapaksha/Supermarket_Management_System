@@ -14,9 +14,10 @@ import supermarket.service.custom.ItemService;
  * @author Sanjaya Prasad
  */
 public class ItemController {
-        private ItemService itemService = (ItemService) ServiceFactory.getInstance().getService(ServiceFactory.ServiceType.ITEM);
 
-  public String saveItem(ItemDto itemDto) throws Exception {
+    private ItemService itemService = (ItemService) ServiceFactory.getInstance().getService(ServiceFactory.ServiceType.ITEM);
+
+    public String saveItem(ItemDto itemDto) throws Exception {
         return itemService.saveItem(itemDto);
     }
 

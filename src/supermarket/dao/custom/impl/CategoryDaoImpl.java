@@ -22,7 +22,7 @@ public class CategoryDaoImpl implements CategoryDao {
         return CrudUtil.executeUpdate("INSERT INTO Item_Category VALUES(?,?,?)",
                 t.getCategoryID(),
                 t.getCategoryName(),
-                 t.getDescription()
+                t.getDescription()
         );
     }
 
