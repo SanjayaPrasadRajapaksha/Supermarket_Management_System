@@ -13,9 +13,11 @@
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/service/custom/Impl/CustomerServiceImpl.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/dao/CrudDao.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/Menu.java</file>
+            <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/dao/custom/OrderDao.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/controller/OrderController.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/view/CenterCellRenderer.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/entity/CategoryEntity.java</file>
+            <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/login/Login.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/view/CancelOrderView.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/service/custom/Impl/OrderDetailsServiceImpl.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/dao/custom/impl/CustomerDaoImpl.java</file>
@@ -51,7 +53,9 @@
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/service/custom/OrderService.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/entity/ItemEntity.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/view/CustomerView.java</file>
+            <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/login/LoginAttribute.java</file>
             <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/controller/OrderDetailsController.java</file>
+            <file>file:/C:/Users/User/Desktop/Supermarket/Supermarket%20management%20system/src/supermarket/dao/CustomerRepositoryImpl.java</file>
         </group>
     </open-files>
 </project-private>

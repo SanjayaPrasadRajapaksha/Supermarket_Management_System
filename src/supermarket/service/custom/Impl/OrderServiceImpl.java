@@ -47,7 +47,7 @@ public class OrderServiceImpl implements OrderService {
                 for (OrderDetailsDto e : orderDto.getOrderDetailsDto()) {
                     boolean response = orderDetailsDao.save(new OrderDetailsEntity(orderDto.getOrderID(), e.getItemID(), e.getOrderQty(), e.getDiscount(), ((e.getOrderQty() * e.getTotalPrice() - e.getDiscount()))));
                     totalPrice += e.getOrderQty() * e.getTotalPrice();
-                    billDetails += ("# " + e.getItemID() + " : " + e.getOrderQty() + " * " + e.getTotalPrice() + " - " + e.getDiscount() + "(Dis)" + "\t" + (e.getOrderQty() * e.getTotalPrice() - e.getDiscount()) + "\n");
+                    billDetails += ("# " + e.getItemID() + " : " + e.getOrderQty() + " * " + e.getTotalPrice() + " - " + e.getDiscount() + "(Dis)" + "\t= " + (e.getOrderQty() * e.getTotalPrice() - e.getDiscount()) + "\n");
                     if (!response) {
                         isOrderDetailSaved = false;
                     }
@@ -64,7 +64,7 @@ public class OrderServiceImpl implements OrderService {
                             if (!ItemDao.update(itemEntity)) {
                                 isItemUpdated = false;
                             } else {
-                                isItemUpdated = false;
+                                isItemUpdated = true;
                             }
                         }
                     }
@@ -72,7 +72,7 @@ public class OrderServiceImpl implements OrderService {
                     if (isItemUpdated) {
                         connection.commit();
 
-                        return billDetails + "\n" + "Total Price :" + "\t\t" + totalPrice + "/=";
+                        return billDetails + "\n" + "Total Price :" + "\t\t= " + totalPrice + "/=";
                     } else {
                         connection.rollback();
                         return "Item Update Error";

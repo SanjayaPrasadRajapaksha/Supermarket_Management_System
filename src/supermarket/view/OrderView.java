@@ -426,6 +426,8 @@ public class OrderView extends javax.swing.JFrame {
         txtQuantity.setText("");
         txtOrderID.setText("");
         txtCustomerID.setText("");
+        lblCustData.setText("");
+        lblItemData.setText("");
     }
 
     private void placeOrder() {

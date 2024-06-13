@@ -63,7 +63,7 @@ public class ItemView extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("MANAGE CUSTOMERS");
+        jLabel1.setText("MANAGE ITEMS");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel2.setText("Name :");
@@ -217,8 +217,8 @@ public class ItemView extends javax.swing.JFrame {
                     .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
