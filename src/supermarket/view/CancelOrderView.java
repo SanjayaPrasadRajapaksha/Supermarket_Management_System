@@ -416,7 +416,11 @@ private void loadTable1() {
         DefaultTableModel model2 = (DefaultTableModel) tblItemsData.getModel();
         model2.setRowCount(0);
     }
-
+    private void clear2() {
+        txtDis.setText("");
+        txtItemID.setText("");
+        txtQty.setText("");  
+    }
     private void AddToTable() {
         try {
 
@@ -436,6 +440,7 @@ private void loadTable1() {
             }
             JTableHeader header = tblItemsData.getTableHeader();
             header.setFont(new Font("Arial", Font.BOLD, 16));
+            clear2();
         } catch (Exception ex) {
             Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, ex.getMessage());

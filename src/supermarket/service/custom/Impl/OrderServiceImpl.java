@@ -124,7 +124,7 @@ public class OrderServiceImpl implements OrderService {
 
                 if (isItemUpdated) {
                     connection.commit();
-                    return "Success";
+                    return "SuccessFully canceled";
                 } else {
                     connection.rollback();
                     return "Item Update Error";

@@ -84,8 +84,8 @@
                       <Component id="txtAddress" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtContact" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtName" alignment="0" max="32767" attributes="0"/>
-                      <Component id="txtNIC" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtDOB" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtNIC" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtID" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtTitle" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -120,12 +120,12 @@
                           </Group>
                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtDOB" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNIC" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtNIC" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDOB" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -231,14 +231,14 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtNIC">
+        <Component class="javax.swing.JTextField" name="txtDOB">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNICActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDOBActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -257,7 +257,7 @@
             <Property name="text" type="java.lang.String" value="DOB:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtDOB">
+        <Component class="javax.swing.JTextField" name="txtNIC">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>

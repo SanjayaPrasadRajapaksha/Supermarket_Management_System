@@ -49,10 +49,10 @@ public class CustomerView extends javax.swing.JFrame {
         txtTitle = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        txtNIC = new javax.swing.JTextField();
+        txtDOB = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtDOB = new javax.swing.JTextField();
+        txtNIC = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtContact = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -97,10 +97,10 @@ public class CustomerView extends javax.swing.JFrame {
 
         txtName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        txtNIC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNIC.addActionListener(new java.awt.event.ActionListener() {
+        txtDOB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtDOB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNICActionPerformed(evt);
+                txtDOBActionPerformed(evt);
             }
         });
 
@@ -110,7 +110,7 @@ public class CustomerView extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel6.setText("DOB:");
 
-        txtDOB.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtNIC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel7.setText("Contact :");
@@ -220,8 +220,8 @@ public class CustomerView extends javax.swing.JFrame {
                     .addComponent(txtAddress)
                     .addComponent(txtContact)
                     .addComponent(txtName)
-                    .addComponent(txtNIC)
                     .addComponent(txtDOB)
+                    .addComponent(txtNIC)
                     .addComponent(txtID)
                     .addComponent(txtTitle))
                 .addGap(27, 27, 27)
@@ -250,11 +250,11 @@ public class CustomerView extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNIC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -322,9 +322,9 @@ public class CustomerView extends javax.swing.JFrame {
         searchCustomer();
     }//GEN-LAST:event_tblDataMouseClicked
 
-    private void txtNICActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNICActionPerformed
+    private void txtDOBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDOBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNICActionPerformed
+    }//GEN-LAST:event_txtDOBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -459,8 +459,8 @@ public class CustomerView extends javax.swing.JFrame {
                 txtID.setText(customerDto.getCustID());
                 txtTitle.setText(customerDto.getCustTitle());
                 txtName.setText(customerDto.getCustName());
-                txtNIC.setText(customerDto.getNIC());
                 txtDOB.setText(customerDto.getDOB());
+                txtNIC.setText(customerDto.getNIC());
                 txtContact.setText(customerDto.getMobileNumber());
                 txtAddress.setText(customerDto.getCustAddress());
                 txtCity.setText(customerDto.getCity());
@@ -506,8 +506,8 @@ public class CustomerView extends javax.swing.JFrame {
         txtID.setText("");
         txtTitle.setText("");
         txtName.setText("");
-        txtNIC.setText("");
         txtDOB.setText("");
+        txtNIC.setText("");
         txtContact.setText("");
         txtAddress.setText("");
         txtCity.setText("");

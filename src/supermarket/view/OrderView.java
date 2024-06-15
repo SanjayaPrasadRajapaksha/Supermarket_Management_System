@@ -429,7 +429,13 @@ public class OrderView extends javax.swing.JFrame {
         lblCustData.setText("");
         lblItemData.setText("");
     }
-
+ private void clear2() {
+        txtDiscount.setText("");
+        txtItemID.setText("");
+        txtQuantity.setText("");
+        lblItemData.setText("");
+       
+    }
     private void placeOrder() {
         try {
             SimpleDateFormat sDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -472,6 +478,7 @@ public class OrderView extends javax.swing.JFrame {
             }
             JTableHeader header = tblData.getTableHeader();
             header.setFont(new Font("Arial", Font.BOLD, 16));
+            clear2();
         } catch (Exception ex) {
             Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, ex.getMessage());
